@@ -2,11 +2,11 @@ const
   Parker = require('parker'), // Parker stylesheet analysis
   fs = require('fs'),
   path = require('path'),
-  log = require('fancy-log');
+  log = require('fancy-log'),
+  metrics = require('parker/metrics/all');
 
 module.exports = (config) => {
   const basepath = path.join(process.cwd(), config.basepath);
-  const metrics = require('../node_modules/parker/metrics/all');
   const parker = new Parker(metrics);
   fs.readdir(`${basepath}${config.location}`, (err, files) => {
     if (err) {
